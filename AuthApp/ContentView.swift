@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("logs_status") var logstatus:Bool = false
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            if logstatus {
+                Home()
+            } else {
+                LoginView()
+                    .navigationBarHidden(true)
+            }
+        
+        }
     }
 }
 
